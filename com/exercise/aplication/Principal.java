@@ -9,10 +9,12 @@ import com.exercise.entities.enums.OrderStatus;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Principal {
     public static void main(String[] args) throws ParseException {
+        Locale.setDefault(Locale.US);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat dataAtual = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Scanner sc = new Scanner(System.in);
@@ -26,12 +28,11 @@ public class Principal {
         System.out.print("Email: ");
         String email = sc.nextLine();
         System.out.print("Nascimento (DD/MM/AAAA): ");
-        Date dataNascimento = sdf.parse(sc.next());
-        cliente = new Cliente(nome, email, dataNascimento);
+        Date dataNascimento = sdf.parse(sc.nextLine());
         System.out.println("Digite o status do pedido: ");
         System.out.print("Status: ");
         String statusPedido = sc.nextLine();
-        OrderStatus.valueOf(statusPedido); 
+        pedido = new Order(new Date(), OrderStatus.valueOf(statusPedido), new Cliente(nome, email, dataNascimento));
 
         
         System.out.print("Quantos itens ira digitar ?");
