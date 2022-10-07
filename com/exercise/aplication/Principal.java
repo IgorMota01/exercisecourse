@@ -18,6 +18,7 @@ public class Principal {
         Scanner sc = new Scanner(System.in);
         OrderItem produtos = new OrderItem();
         Order pedido = new Order();
+        Cliente cliente = new Cliente();
 
         System.out.println("Digite os dados do cliente: ");
         System.out.print("Nome: ");
@@ -26,13 +27,13 @@ public class Principal {
         String email = sc.nextLine();
         System.out.print("Nascimento (DD/MM/AAAA): ");
         Date dataNascimento = sdf.parse(sc.next());
-        Cliente cliente = new Cliente(nome, email, dataNascimento);
+        cliente = new Cliente(nome, email, dataNascimento);
         System.out.println("Digite o status do pedido: ");
         System.out.print("Status: ");
-        String status = sc.nextLine();
-        OrderStatus.valueOf(status);
+        String statusPedido = sc.nextLine();
+        OrderStatus.valueOf(statusPedido); 
 
-        System.out.println();
+        
         System.out.print("Quantos itens ira digitar ?");
         int qtItens = sc.nextInt();
 
@@ -52,12 +53,11 @@ public class Principal {
         System.out.println();
         System.out.println("--- RESUMO DO PEDIDO ---");
         System.out.println("Horario do pedido: " + dataAtual.format(new Date()));
-        System.out.println("Status do pedido: " + status);
+        System.out.println("Status do pedido: " + statusPedido);
         System.out.println(cliente);
         System.out.println(produtos);
         System.out.println(pedido.total());
 
-
-
+        sc.close();
     }
 }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 public class Order {
     private Date momento;
     private OrderStatus status;
@@ -71,6 +72,7 @@ public class Order {
 
     public double total() {
         for (OrderItem items : itens) {
+            System.out.println(items);
             pedido.subTotal();
         }
         return pedido.subTotal();
