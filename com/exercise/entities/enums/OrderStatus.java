@@ -5,4 +5,14 @@ public enum OrderStatus {
     PROCESSANDO,
     ENVIADO,
     ENTREGUE;
+
+    public static OrderStatus getByStatus(String status) {
+        OrderStatus result = null;
+        for (OrderStatus item : OrderStatus.values()) {
+          if (item.equals(result)) {
+            result = item;
+          }
+        }
+        return result;
+      }
 }
